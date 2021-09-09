@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <p th:text="${saludar}"></p>
+        <br>
+        <div th:if="${personas !=null and !personas.empty}">
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+            </tr>
+            
+                <tr th:each="persona : ${personas}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre></td>
+                    <td th:text="${persona.apellido}">Mostrar Apellido</td>
+                    <td th:text="${persona.email}">Mostrar Email</td>
+                    <td th:text="${persona.telefono}">Mostrar Telefono></td>    
+                </tr>
+           
+        </table>
+        </div> 
+        <div th:if="${personas ==null or personas.empty}">
+            La Lista de Personas esta vacia
+        </div>
+       <!--Nombre: <span th:text="${entidad.nombre}">Mostrar Nombre</span>
+        <br> 
+        Apellido: <span th:text="${entidad.apellido}">Mostrar Apellido</span>    
+        <br> 
+        Email: <span th:text="${entidad.email}">Mostrar Email</span>
+        <br> 
+        Telefono: <span th:text="${entidad.telefono}">Mostrar Telefono</span>
+    </body>-->
+</html>
